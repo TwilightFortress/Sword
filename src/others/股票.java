@@ -1,8 +1,4 @@
-/**
- * @author yn
- * @date 2018年10月10日
- * Description:
- */
+package others;
 
 public class 股票 {
 	

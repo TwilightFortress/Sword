@@ -1,10 +1,4 @@
-/**
- * @author yn
- * @date 2018年10月10日
- * Description:
- */
-
-
+package others;
 public class 乌鸦喝水 {
 	public static void main(String[] args) {
 		getRes(2);

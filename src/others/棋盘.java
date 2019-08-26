@@ -1,9 +1,4 @@
-/**
- * @author yn
- * @date 2018年10月10日
- * Description:
- */
-
+package others;
 public class 棋盘 {
 	public static  char[][] replace(char[][] chars) {
 		int r=chars.length;

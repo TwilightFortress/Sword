@@ -7,11 +7,11 @@ package sword.树;
  * @author yuyang
  * @create 2019-08-10 10:45
  */
-public class j树的子结构 {
+public class 树的子结构 {
     public boolean HasSubtree(TreeNode root1, TreeNode root2) {
-        //空树不是任意树子结构
         if (root1 == null && root2 != null)
             return false;
+        //空树不是任意树子结构
         if (root2 == null)
             return false;
 

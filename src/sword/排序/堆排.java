@@ -1,5 +1,7 @@
 package sword.排序;
 
+import java.awt.*;
+
 /**
  * @author yuyang
  * @create 2019-08-08 13:50
@@ -11,9 +13,8 @@ public class 堆排 {
             return;
         }
         //1.将数组转化成大根堆
-        for (int i = 0; i < arr.length; i++) {
-            heapInsert(arr, i);
-        }
+        heapInsert(arr);
+
         int size = arr.length;
         swap(arr, 0, --size);
         while (size > 0) {
@@ -23,14 +24,17 @@ public class 堆排 {
     }
 
     //将数组转化为大根堆方式存储
-    public static void heapInsert(int[] arr, int index) {
-        //当前节点的值大于父节点的值
-        while (arr[index] > arr[(index - 1) / 2]) {
-            //交换
-            swap(arr, index, (index - 1) / 2);
-            //当前节点变为父节点的值继续进行判断
-            index = (index - 1) / 2;
+    public static void heapInsert(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            //当前节点的值大于父节点的值
+            while (arr[i] > arr[(i - 1) / 2]) {
+                //交换
+                swap(arr, i, (i - 1) / 2);
+                //当前节点变为父节点的值继续进行判断
+                i = (i - 1) / 2;
+            }
         }
+
     }
 
     public static void heapify(int[] arr, int index, int size) {
@@ -54,6 +58,12 @@ public class 堆排 {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 8, 65, 3, 5, 8, 0, 5, 32, 54, 76};
+        heapSort(arr);
+        System.out.println(arr);
     }
 
 }

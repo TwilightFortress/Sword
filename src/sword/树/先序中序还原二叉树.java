@@ -6,7 +6,7 @@ package sword.树;
  * @author yuyang
  * @create 2019-08-10 10:44
  */
-public class m先序中序还原二叉树 {
+public class 先序中序还原二叉树 {
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0,
                 in.length - 1);

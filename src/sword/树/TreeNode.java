@@ -5,7 +5,7 @@ package sword.树;
  * @create 2019-08-08 15:23
  */
 public class TreeNode {
-    int val = 0;
+    public int val = 0;
     public TreeNode left = null;
     public TreeNode right = null;
 

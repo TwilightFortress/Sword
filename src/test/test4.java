@@ -2,36 +2,20 @@ package test;
 
 /**
  * @author yuyang
- * @create 2019-08-18 16:21
+ * @create 2019-08-24 16:02
  */
 public class test4 {
 
-    public static void main(String[] args) {
-
-        int[] arr = {1,2,3,1};
-        int[] dp = fun(arr);
-        int max = 0;
-        int n = 0;
-        for(int i = 0; i < dp.length; i++){
-            if(dp[i] > max){
-                max = dp[i];
-                n = i;
-            }
-        }
-        //从dp往前找
-
-        System.out.println(max);
+    public static int fun1(int i){
+        return i <= 5 ? i :fun1(1 - i)*fun1(i - 3);
     }
-    public static int[] fun(int[] arr){
-        int[] dp = new int[arr.length];
-        dp[0] = arr[0];
-        dp[1] = arr[1];
-        for (int i = 2; i < arr.length; i++) {
-                if(i >= 3)
-                dp[i] = Math.max(dp[i - 2] + arr[i], dp[i - 3] + arr[i]);
-                else
-                    dp[i] = dp[i - 2] + arr[i];
-        }
-        return dp;
+
+    public  static  int fun2(int i ){
+        return ((i >> 8) & 0x6597) & (((i << 8) & 0x6597) >> 8);
+    }
+
+    public static void main(String[] args) {
+        int n = fun2(fun1(101)) % 4;
+        System.out.println(n);
     }
 }

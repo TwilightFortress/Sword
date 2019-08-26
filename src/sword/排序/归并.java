@@ -21,7 +21,7 @@ public class 归并 {
         }
         int mid = l + ((r - l) >> 1); //取中点位置
         mergeSort(arr, l, mid);    //排序左边
-        mergeSort(arr, mid + 1, r); //排序右边
+        mergeSort(arr, mid  + 1, r); //排序右边
         merge(arr, l, mid, r); //合并排序过程
     }
 

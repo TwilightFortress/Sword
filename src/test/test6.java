@@ -1,23 +1,39 @@
 package test;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  * @author yuyang
- * @create 2019-08-18 16:54
+ * @create 2019-08-24 17:06
  */
 public class test6 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] str = sc.nextLine().split(" ");
-        int n = Integer.parseInt(str[0]);
-        int t = Integer.parseInt(str[1]);
-        int m = Integer.parseInt(str[2]);
-        String[] str1 = sc.nextLine().split(" ");
-        int tmp = 0;
+        int n = sc.nextInt();
         for (int i = 0; i < n; i++) {
-            tmp += Integer.parseInt(str1[i]);
+            int m = sc.nextInt();
+            int[] arr = new int[m];
+            for (int j = 0; j < m; j++) {
+                arr[j] = sc.nextInt();
+            }
+            System.out.println(getMax(arr));
         }
-        System.out.println((int)Math.ceil(((double)(tmp - t + m)/m)));
+    }
+
+    private static void fun7(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+ " ");
+        }
+        System.out.println();
+    }
+    public  static int getMax(int[] nums){
+        int max = 0;
+        Arrays.sort(nums);
+        for (int i = nums.length - 1; i >=2 ; i -= 3) {
+            int min = Math.min(Math.min(nums[i] , nums[i - 1]), nums[i - 2]);
+            max += min;
+        }
+        return max;
     }
 }

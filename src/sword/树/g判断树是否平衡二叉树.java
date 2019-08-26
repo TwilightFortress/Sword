@@ -7,22 +7,21 @@ package sword.树;
 public class g判断树是否平衡二叉树 {
     int left = 0;
     int right = 0;
-    public boolean IsBalanced_Solution(TreeNode root) {
+    public boolean IsBalanced_Solution(TreeNode head) {
         //空树为平衡二叉树
-        if(root == null)
+        if(head == null)
             return true;
 
-        if(root != null)
-            //左右子树深度差大于1不满足平衡二叉树
-            if(IsBalance(root.left) - IsBalance(root.right)>1 ||IsBalance(root.left) - IsBalance(root.right)< -1)
+        if(head != null)
+            if(Math.abs(IsBalance(head.left) - IsBalance(head.right)) > 1)
                 return false;
         return true;
     }
     //求树的深度
-    public int IsBalance(TreeNode root){
-        if(root == null) return 0;
-        left = IsBalance(root.left);
-        right = IsBalance(root.right);
+    public int IsBalance(TreeNode head){
+        if(head == null) return 0;
+        left = IsBalance(head.left);
+        right = IsBalance(head.right);
         return Math.max(left,right) + 1;
     }
 }

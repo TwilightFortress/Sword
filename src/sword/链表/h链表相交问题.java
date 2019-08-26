@@ -1,5 +1,7 @@
 package sword.链表;
 
+import static sword.链表.aa创建链表.CreateList1;
+
 /**
  * @author yuyang
  * @create 2019-08-08 10:44
@@ -9,22 +11,16 @@ package sword.链表;
  * 3.相遇后快指针回到起始位置
  */
 public class h链表相交问题 {
-    public static class Node {
-        public int value;
-        public Node next;
-        public Node(int data) {
-            this.value = data;
-        }
-    }
+
 
     //主函数
-    public static Node getIntersectNode(Node head1, Node head2) {
+    public static ListNode getIntersectNode(ListNode head1, ListNode head2) {
         //边界：只要有空链表，则没有相交可能
         if (head1 == null || head2 == null) {
             return null;
         }
-        Node loop1 = getLoopNode(head1);
-        Node loop2 = getLoopNode(head2);
+        ListNode loop1 = getLoopNode(head1);
+        ListNode loop2 = getLoopNode(head2);
         //两个都没有环
         if (loop1 == null && loop2 == null) {
             return noLoop(head1, head2);
@@ -45,14 +41,14 @@ public class h链表相交问题 {
      * @param head
      * @return
      */
-    public static Node getLoopNode(Node head) {
+    public static ListNode getLoopNode(ListNode head) {
         //链表有环最少三个节点，少于三个节点直接返回null
         if (head == null || head.next == null || head.next.next == null) {
             return null;
         }
         //注意：第一个指针为头结点下一个节点
-        Node n1 = head.next; // n1 -> slow
-        Node n2 = head.next.next; // n2 -> fast
+        ListNode n1 = head.next; // n1 -> slow
+        ListNode n2 = head.next.next; // n2 -> fast
         //遍历链表的过程：循环条件为两个指针不相等
         while (n1 != n2) {
             //循环过程中如果有快慢指针有指向null的情况，说明链表无环
@@ -80,12 +76,12 @@ public class h链表相交问题 {
      * @param head2
      * @return
      */
-    public static Node noLoop(Node head1, Node head2) {
+    public static ListNode noLoop(ListNode head1, ListNode head2) {
         if (head1 == null || head2 == null) {
             return null;
         }
-        Node cur1 = head1;
-        Node cur2 = head2;
+        ListNode cur1 = head1;
+        ListNode cur2 = head2;
         int n = 0; //两个链表长度的差值
         while (cur1.next != null) {
             n++;
@@ -127,9 +123,9 @@ public class h链表相交问题 {
      * @param loop2
      * @return
      */
-    public static Node bothLoop(Node head1, Node loop1, Node head2, Node loop2) {
-        Node cur1 = null;
-        Node cur2 = null;
+    public static ListNode bothLoop(ListNode head1, ListNode loop1, ListNode head2, ListNode loop2) {
+        ListNode cur1 = null;
+        ListNode cur2 = null;
         //入环点相等：变成有环相交问题
         if (loop1 == loop2) {
             cur1 = head1;
@@ -170,43 +166,37 @@ public class h链表相交问题 {
 
     public static void main(String[] args) {
         // 1->2->3->4->5->6->7->null
-        Node head1 = new Node(1);
-        head1.next = new Node(2);
-        head1.next.next = new Node(3);
-        head1.next.next.next = new Node(4);
-        head1.next.next.next.next = new Node(5);
-        head1.next.next.next.next.next = new Node(6);
-        head1.next.next.next.next.next.next = new Node(7);
+        ListNode head1 = CreateList1();
 
         // 0->9->8->6->7->null
-        Node head2 = new Node(0);
-        head2.next = new Node(9);
-        head2.next.next = new Node(8);
+        ListNode head2 = new ListNode(0);
+        head2.next = new ListNode(9);
+        head2.next.next = new ListNode(8);
         head2.next.next.next = head1.next.next.next.next.next; // 8->6
-        System.out.println(getIntersectNode(head1, head2).value);
+        System.out.println(getIntersectNode(head1, head2).val);
 
         // 1->2->3->4->5->6->7->4...
-        head1 = new Node(1);
-        head1.next = new Node(2);
-        head1.next.next = new Node(3);
-        head1.next.next.next = new Node(4);
-        head1.next.next.next.next = new Node(5);
-        head1.next.next.next.next.next = new Node(6);
-        head1.next.next.next.next.next.next = new Node(7);
+        head1 = new ListNode(1);
+        head1.next = new ListNode(2);
+        head1.next.next = new ListNode(3);
+        head1.next.next.next = new ListNode(4);
+        head1.next.next.next.next = new ListNode(5);
+        head1.next.next.next.next.next = new ListNode(6);
+        head1.next.next.next.next.next.next = new ListNode(7);
         head1.next.next.next.next.next.next = head1.next.next.next; // 7->4
 
         // 0->9->8->2...
-        head2 = new Node(0);
-        head2.next = new Node(9);
-        head2.next.next = new Node(8);
+        head2 = new ListNode(0);
+        head2.next = new ListNode(9);
+        head2.next.next = new ListNode(8);
         head2.next.next.next = head1.next; // 8->2
-        System.out.println(getIntersectNode(head1, head2).value);
+        System.out.println(getIntersectNode(head1, head2).val);
 
         // 0->9->8->6->4->5->6..
-        head2 = new Node(0);
-        head2.next = new Node(9);
-        head2.next.next = new Node(8);
+        head2 = new ListNode(0);
+        head2.next = new ListNode(9);
+        head2.next.next = new ListNode(8);
         head2.next.next.next = head1.next.next.next.next.next; // 8->6
-        System.out.println(getIntersectNode(head1, head2).value);
+        System.out.println(getIntersectNode(head1, head2).val);
     }
 }

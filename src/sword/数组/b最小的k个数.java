@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * 例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
  * @author yuyang
  * @create 2019-08-11 10:08
+ * 注：最简单的方式是直接排序，然后选择前k个就可以，但是时间复杂度为最好O(nlogn)，
+ * 使用下面的方式，不用全部排完就可以得到输出，时间复杂度优于排序的方式
  */
 public class b最小的k个数 {
     public static ArrayList<Integer> MinNumber(int [] arr, int k) {

@@ -1,5 +1,7 @@
 package sword.链表;
 
+import static sword.链表.aa创建链表.CreateList1;
+
 /**
  * 走一步翻转一个
  * 1.标记下一个节点：              pNext = p.next;
@@ -9,7 +11,12 @@ package sword.链表;
  * @create 2019-08-08 13:58
  */
 public class d翻转链表 {
-    public ListNode ReverseList(ListNode head) {
+    /**
+     * 非递归
+     * @param head
+     * @return
+     */
+    public static ListNode ReverseList(ListNode head) {
         ListNode realHead = null;
         ListNode p = head;
         ListNode pre = null;

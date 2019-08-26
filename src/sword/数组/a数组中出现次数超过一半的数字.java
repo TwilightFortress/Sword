@@ -6,6 +6,7 @@ package sword.数组;
  * 2.使用快排
  * @author yuyang
  * @create 2019-08-11 10:08
+ * 最简单的方式是使用hashmap,但是需要消耗空间，使用下面的方式无序额外的空间复杂度。
  */
 public class a数组中出现次数超过一半的数字 {
     public int MoreThanHalfNum_Solution(int [] array) {

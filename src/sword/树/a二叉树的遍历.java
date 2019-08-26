@@ -1,8 +1,8 @@
 package sword.树;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
+
+import static sword.树.aa创建树.CreateTree;
 
 /**
  * 先、中、后的递归+非递归
@@ -11,60 +11,50 @@ import java.util.Stack;
  */
 public class a二叉树的遍历 {
 
-    public static class Node {
-        public int value;
-        public Node left;
-        public Node right;
-
-        public Node(int data) {
-            this.value = data;
-        }
-    }
-
-    public static void preOrderRecur(Node head) {
+    public static void preOrderRecur(TreeNode head) {
         if (head == null) {
             return;
         }
-        System.out.print(head.value + " ");
+        System.out.print(head.val + " ");
         preOrderRecur(head.left);
         preOrderRecur(head.right);
     }
 
     //树的高度
-    public static int getHeight(Node head, int h) {
+    public static int getHeight(TreeNode head, int h) {
         if (head == null) return h;
         return Math.max(getHeight(head.left, h + 1), getHeight(head.right, h + 1));
     }
 
-    public static void inOrderRecur(Node head) {
+    public static void inOrderRecur(TreeNode head) {
         if (head == null) {
             return;
         }
         inOrderRecur(head.left);
-        System.out.print(head.value + " ");
+        System.out.print(head.val + " ");
         inOrderRecur(head.right);
     }
 
-    public static void posOrderRecur(Node head) {
+    public static void posOrderRecur(TreeNode head) {
         if (head == null) {
             return;
         }
         posOrderRecur(head.left);
         posOrderRecur(head.right);
-        System.out.print(head.value + " ");
+        System.out.print(head.val + " ");
     }
 
     //先序：栈
-    public static void preOrderUnRecur(Node head) {
+    public static void preOrderUnRecur(TreeNode head) {
         System.out.print("pre-order: ");
         if (head != null) {
-            Stack<Node> stack = new Stack<Node>();
+            Stack<TreeNode> stack = new Stack<>();
             //第一个节点入栈
             stack.add(head);
             while (!stack.isEmpty()) {
                 //头节点弹出打印
                 head = stack.pop();
-                System.out.print(head.value + " ");
+                System.out.print(head.val + " ");
                 //如果头节点又子数不为空入栈，左子树不为空入栈，这里先入右子树
                 if (head.right != null) {
                     stack.push(head.right);
@@ -78,10 +68,10 @@ public class a二叉树的遍历 {
     }
 
     //中序：栈
-    public static void inOrderUnRecur(Node head) {
+    public static void inOrderUnRecur(TreeNode head) {
         System.out.print("in-order: ");
         if (head != null) {
-            Stack<Node> stack = new Stack<Node>();
+            Stack<TreeNode> stack = new Stack<TreeNode>();
             while (!stack.isEmpty() || head != null) {
                 //压入所有左边界
                 if (head != null) {
@@ -90,7 +80,7 @@ public class a二叉树的遍历 {
                     //
                 } else {
                     head = stack.pop();
-                    System.out.print(head.value + " ");
+                    System.out.print(head.val + " ");
                     head = head.right;
                 }
             }
@@ -99,11 +89,11 @@ public class a二叉树的遍历 {
     }
 
     //后序：先序的启发改良 :按照先序的规则压入：中 左 右  反序就是 左右中
-    public static void posOrderUnRecur1(Node head) {
+    public static void posOrderUnRecur1(TreeNode head) {
         System.out.print("pos-order: ");
         if (head != null) {
-            Stack<Node> s1 = new Stack<Node>();
-            Stack<Node> s2 = new Stack<Node>();
+            Stack<TreeNode> s1 = new Stack<TreeNode>();
+            Stack<TreeNode> s2 = new Stack<TreeNode>();
             s1.push(head);
             while (!s1.isEmpty()) {
                 head = s1.pop();
@@ -116,19 +106,19 @@ public class a二叉树的遍历 {
                 }
             }
             while (!s2.isEmpty()) {
-                System.out.print(s2.pop().value + " ");
+                System.out.print(s2.pop().val + " ");
             }
         }
         System.out.println();
     }
 
     //后序2
-    public static void posOrderUnRecur2(Node h) {
+    public static void posOrderUnRecur2(TreeNode h) {
         System.out.print("pos-order: ");
         if (h != null) {
-            Stack<Node> stack = new Stack<Node>();
+            Stack<TreeNode> stack = new Stack<TreeNode>();
             stack.push(h);
-            Node c = null;
+            TreeNode c = null;
             while (!stack.isEmpty()) {
                 c = stack.peek();
                 if (c.left != null && h != c.left && h != c.right) {
@@ -136,7 +126,7 @@ public class a二叉树的遍历 {
                 } else if (c.right != null && h != c.right) {
                     stack.push(c.right);
                 } else {
-                    System.out.print(stack.pop().value + " ");
+                    System.out.print(stack.pop().val + " ");
                     h = c;
                 }
             }
@@ -145,18 +135,8 @@ public class a二叉树的遍历 {
     }
 
     public static void main(String[] args) {
-        Node head = new Node(5);
-        head.left = new Node(3);
-        head.right = new Node(8);
-        head.left.left = new Node(2);
-        head.left.right = new Node(4);
-        head.left.left.left = new Node(1);
-        head.right.left = new Node(7);
-        head.right.left.left = new Node(6);
-        head.right.right = new Node(10);
-        head.right.right.left = new Node(9);
-        head.right.right.right = new Node(11);
 
+        TreeNode head = CreateTree();
         // recursive
         System.out.println("==============recursive==============");
         System.out.print("pre-order: ");

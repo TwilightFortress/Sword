@@ -10,12 +10,10 @@ import java.util.ArrayList;
 public class a从尾到头打印链表 {
     ArrayList<Integer> contraryList = new ArrayList<>();
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
-
         if(listNode != null){
             printListFromTailToHead(listNode.next);
             contraryList.add(listNode.val);
         }
-
         return contraryList;
     }
 }

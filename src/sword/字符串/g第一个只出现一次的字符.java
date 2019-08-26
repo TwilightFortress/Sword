@@ -1,5 +1,8 @@
 package sword.字符串;
 
+import java.util.HashMap;
+import java.util.concurrent.ForkJoinPool;
+
 /**
  * 在一个字符串(0<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）
  * @author yuyang
@@ -9,7 +12,7 @@ public class g第一个只出现一次的字符 {
     public int FirstNotRepeatingChar(String str) {
         if(str==null)
             return -1;
-        //字符8位，ASCII码范围2的8次方 256
+        //字符为2个字节，一个字节4位，2个字节为8位。字符8位，ASCII码范围2的8次方 256
         int[] repetitions = new int[256];
         //初始化
         for(int i=0;i<256;i++)
@@ -27,5 +30,30 @@ public class g第一个只出现一次的字符 {
                 return i;
         }
         return -1;
+    }
+
+    //hash表的方式存储
+    public static int fun(String str){
+        if(str == null)
+            return -1;
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            if(map.containsKey(str.charAt(i))){
+                map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
+            }else{
+                map.put(str.charAt(i),1);
+            }
+        }
+        for (int j = 0; j < str.length(); j++) {
+            if(map.get(str.charAt(j)) == 1){
+                return j;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        String str = "abababdabacbabababaeb";
+        System.out.println(fun(str));
     }
 }

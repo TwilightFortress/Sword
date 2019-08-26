@@ -5,7 +5,7 @@ package sword.树;
  * @author yuyang
  * @create 2019-08-10 10:46
  */
-public class n判断数组是否为后序遍历 {
+public class 判断数组是否为二叉搜索树后序遍历 {
     public boolean VerifySquenceOfBST(int[] sequence) {
         //边界：头结点为空返回false
         if (sequence.length == 0) return false;

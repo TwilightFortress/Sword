@@ -23,7 +23,7 @@ public class c二叉搜索树与双向链表 {
         if(pRootOfTree==null) return;
         //找到整个树中最左边的节点
         ConvertSub(pRootOfTree.left);
-        //找到最左边节点，最左边节点就是最后链表的真正头节点
+        //最左边第一个为空的节点是链表的头结点
         if (head == null) {
             head = pRootOfTree;
             realHead = pRootOfTree;

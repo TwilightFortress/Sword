@@ -34,7 +34,7 @@ public class b正则表达式匹配 {
 
         //模式下一位为*
         if (indexOfPattern + 1 < pattern.length && pattern[indexOfPattern + 1] == '*') {
-            //当前为相等
+             //当前为相等
             if ((indexOfStr < str.length && pattern[indexOfPattern] == '.')
                     || (indexOfStr < str.length && pattern[indexOfPattern] == str[indexOfStr])) {
                                 //模式后移两位

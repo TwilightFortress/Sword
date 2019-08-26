@@ -5,8 +5,8 @@ package sword.链表;
  * @create 2019-08-07 10:35
  */
 public class ListNode {
-    int val;
-    sword.链表.ListNode next = null;
+    public int val;
+    public ListNode next = null;
 
     ListNode(int val) {
         this.val = val;

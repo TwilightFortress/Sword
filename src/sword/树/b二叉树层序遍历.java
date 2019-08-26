@@ -13,6 +13,7 @@ public class b二叉树层序遍历 {
     Queue<TreeNode> queue = new LinkedList<>();
     //存储数据
     ArrayList<Integer> list = new ArrayList<Integer>();
+
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode head) {
         TreeNode tmp;
         //头结点入队列

@@ -7,7 +7,7 @@ package sword.DP;
  * @author yuyang
  * @create 2019-08-14 16:16
  */
-public class 换钱最少货币数 {
+public class c换钱最少货币数 {
 
     public static int minCoins1(int[] arr, int aim) {
         if (arr == null || arr.length == 0 || aim < 0) {

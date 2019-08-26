@@ -1,10 +1,12 @@
 package sword.树;
 
+import static sword.树.aa创建树.CreateBFS;
+
 /**
  * @author yuyang
  * @create 2019-08-10 10:54
  */
-public class o二叉树序列化反序列化 {
+public class 二叉树序列化反序列化 {
     /**
      * 1.中序遍历
      * @param head
@@ -42,19 +44,7 @@ public class o二叉树序列化反序列化 {
     }
 
     public static void main(String[] args) {
-        TreeNode head = new TreeNode(10);
-        TreeNode node1 = new TreeNode(6);
-        TreeNode node2 = new TreeNode(14);
-        TreeNode node3 = new TreeNode(4);
-        TreeNode node4 = new TreeNode(8);
-        TreeNode node5 = new TreeNode(12);
-        TreeNode node6 = new TreeNode(16);
-        head.left = node1;
-        head.right = node2;
-        node1.left = node3;
-        node1.right = node4;
-        node2.left = node5;
-        node2.right = node6;
+        TreeNode head = CreateBFS();
         String str = Serialize(head);
         System.out.println(str);
         TreeNode node = Deserialize(str);

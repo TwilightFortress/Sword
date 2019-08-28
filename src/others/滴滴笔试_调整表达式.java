@@ -1,7 +1,4 @@
 package others;
-
-import sun.font.FontRunIterator;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,7 +10,7 @@ import java.util.Scanner;
 6
 3 + 2 + 1 * -4 / -5 + 1
  */
-public class 滴滴1 {
+public class 滴滴笔试_调整表达式 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String n1 = sc.nextLine();

@@ -12,23 +12,26 @@ import static sword.树.aa创建树.CreateBFS;
  * @create 2019-08-10 10:54
  */
 public class i二叉搜索树第k小节点 {
-    int index = 0; //计数器
+    static int index = 0; //计数器
 
     /**
      * 递归方式
+     *
      * @param head
      * @param k
      * @return
      */
-    public TreeNode KthNode(TreeNode head, int k) {
+    public static TreeNode KthNode(TreeNode head, int k) {
         if (head != null) { //中序遍历寻找第k个
             TreeNode node = KthNode(head.left, k);
             //把递归找到的节点逐层的返回到最后一层
             if (node != null)
                 return node;
             index++;
-            if (index == k)
+            System.out.println(head.val);
+            if (index == k) {
                 return head;
+            }
             node = KthNode(head.right, k);
             //把递归找到的节点逐层的返回到最后一层
             if (node != null)
@@ -37,8 +40,22 @@ public class i二叉搜索树第k小节点 {
         return null;
     }
 
+    public static TreeNode node1 = null;
+    public static int i = 0;
+
+    public static void fun1(TreeNode head, int k) {
+
+        if (head == null) return;
+        fun1(head.left, k);
+        i++;
+        if (k == i) {
+            node1 = head;
+        }
+        fun1(head.right, k);
+    }
     /**
      * 非递归
+     *
      * @param head
      * @param k
      * @return
@@ -66,7 +83,8 @@ public class i二叉搜索树第k小节点 {
 
     public static void main(String[] args) {
         TreeNode node = CreateBFS();
-        TreeNode p = fun(node, 4);
+        TreeNode p = KthNode(node, 2);
         System.out.println(p.val);
+
     }
 }

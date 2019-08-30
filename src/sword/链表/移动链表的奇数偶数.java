@@ -1,6 +1,7 @@
 package sword.链表;
 
 import org.w3c.dom.NodeList;
+import sun.misc.Unsafe;
 
 /**
  * @author yuyang
@@ -38,6 +39,7 @@ public class 移动链表的奇数偶数 {
             System.out.println(node.value);
             node = node.next;
         }
+
     }
 
     static Node swap(Node list) {
@@ -62,7 +64,7 @@ public class 移动链表的奇数偶数 {
         Node newEnd = end;
 
         //将第一个偶数前的奇数放到链尾
-        while (curr.value % 2 == 1 && curr != end) {
+        while ((curr.value & 1) == 1 && curr != end) {
             newEnd.next = curr;
             curr = curr.next;
             newEnd.next.next = null;
@@ -70,12 +72,12 @@ public class 移动链表的奇数偶数 {
         }
 
         //元素是偶数
-        if (curr.value % 2 != 1) {
+        if ((curr.value & 1) == 0) {
             //头结点为第一个偶数
             list = curr;
 
             while (curr != end) {
-                if ((curr.value) % 2 != 1) {
+                if ((curr.value & 1) == 0) {
                     prev = curr;
                     curr = curr.next;
                 } else {
@@ -90,7 +92,7 @@ public class 移动链表的奇数偶数 {
                     curr = prev.next;
                 }
             }
-            if(end.value % 2 == 1){
+            if((curr.value & 1) == 1){
                 prev.next = end.next;
                 newEnd.next = curr;
                 curr.next = null;
@@ -114,4 +116,5 @@ public class 移动链表的奇数偶数 {
         head.next = null;
         return reversedHead;
     }
+
 }

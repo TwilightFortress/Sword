@@ -1,4 +1,4 @@
-package test;
+package others;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author yuyang
  * @create 2019-08-30 20:21
  */
-public class test5 {
+public class 阿里笔试2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();

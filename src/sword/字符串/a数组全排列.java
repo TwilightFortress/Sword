@@ -29,11 +29,9 @@ public class a数组全排列 {
     }
 
     private static void fun(int[] arr, int i, ArrayList<int[]> list) {
-
         if(i == arr.length - 1){
             list.add(Arrays.copyOf(arr, arr.length));
         }
-
         for (int j = i; j < arr.length; j++) {
             swap(arr, i, j);
             fun(arr, i + 1, list);

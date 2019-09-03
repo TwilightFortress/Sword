@@ -60,3 +60,8 @@ public class a字符串全排列 {
     }
 
 }
+/*
+  select s.sid, s.sname for s where sid in(select sid for sc where cid = (select cid form c where cname = "计算机"));
+
+  select cname form C where cid in(select cid form sc where sid = (select sid for s where sname = "周"));
+ */

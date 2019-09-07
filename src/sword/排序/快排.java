@@ -70,4 +70,41 @@ public class 快排 {
         arr[i] = arr[j];
         arr[j] = tmp;
     }
+
+    public static void quickSort1(int[] arr){
+        if(arr == null || arr.length <= 1) return ;
+        quickSort1(arr, 0 , arr.length - 1);
+    }
+
+    private static void quickSort1(int[] arr, int l, int r) {
+        if(l < r){
+            int n = part1(arr, l, r);
+            quickSort1(arr, l , n - 1);
+            quickSort1(arr,  n + 1, r);
+        }
+    }
+
+    private static int part1(int[] arr, int l, int r) {
+        int key = arr[l];
+        while(l < r){
+            while(l < r && arr[r] > key) {
+                r--;
+            }
+            arr[l] = arr[r];
+            while(l < r && arr[l] <= key) {
+                l++;
+            }
+            arr[r] = arr[l];
+        }
+        arr[l] = key;
+        return l;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3,5,7,8,5,3,2,4,5,67};
+        quickSort1(arr);
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
 }

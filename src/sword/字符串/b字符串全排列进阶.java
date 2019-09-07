@@ -11,7 +11,7 @@ import java.util.List;
  * @author yuyang
  * @create 2019-08-08 11:15
  */
-public class b字符串全排列进阶 {
+public class  b字符串全排列进阶 {
     public static void main(String[] args) throws Throwable {
         String[] data = {"1", "2", "3", "4", "5"};
         int num = 3;

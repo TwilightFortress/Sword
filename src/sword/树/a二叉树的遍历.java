@@ -26,7 +26,15 @@ public class a二叉树的遍历 {
         return Math.max(getHeight(head.left, h + 1), getHeight(head.right, h + 1));
     }
 
-    public static void inOrderRecur(TreeNode head) {
+    public static int fun(TreeNode head){
+
+        if(head == null) return 0;
+        int left = fun(head.left) + 1;
+        int right = fun(head.right) + 1;
+        return Math.max(left,right);
+    }
+
+    public  static void inOrderRecur(TreeNode head) {
         if (head == null) {
             return;
         }

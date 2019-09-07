@@ -54,6 +54,9 @@ public class a字符串全排列 {
 
     public static void main(String[] args) {
         List<String> list = Permutation("abc");
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 
 }

@@ -63,7 +63,10 @@ public class 堆排 {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 8, 65, 3, 5, 8, 0, 5, 32, 54, 76};
         heapSort(arr);
-        System.out.println(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+
+        }
     }
 
 }

@@ -1,5 +1,6 @@
 package others.ProductConsumer;
 
+import java.util.Scanner;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class 多线程顺序打印ABC implements Runnable {
 
     // 打印次数
-    private static final int PRINT_COUNT = 10;
+    private static  int PRINT_COUNT = 10;
     // 打印锁
     private final ReentrantLock reentrantLock;
     // 本线程打印所需的condition
@@ -38,14 +39,9 @@ public class 多线程顺序打印ABC implements Runnable {
             for (int i = 0; i < PRINT_COUNT; i++) {
                 //打印字符
                 System.out.print(printChar);
-                // 使用nextCondition唤醒下一个线程
-                // 因为只有一个线程在等待，所以signal或者signalAll都可以
-                nextCondtion.signal();
-                // 不是最后一次则通过thisCondtion等待被唤醒
-                // 必须要加判断，不然虽然能够打印10次，但10次后就会直接死锁
+                    nextCondtion.signal();
                 if (i < PRINT_COUNT - 1) {
                     try {
-                        // 本线程让出锁并等待唤醒
                         thisCondtion.await();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -73,7 +69,7 @@ public class 多线程顺序打印ABC implements Runnable {
         // 实例化B线程
         Thread printerB = new Thread(new 多线程顺序打印ABC(lock, conditionB, conditionC, 'B'));
         // 实例化C线程
-        Thread printerC = new Thread(new 多线程顺序打印ABC(lock, conditionC, conditionA, 'C'));
+        Thread printerC = new Thread(new 多线程顺序打印ABC(lock, conditionC, conditionA,  'C'));
         // 依次开始A B C线程
         printerA.start();
         Thread.sleep(100);

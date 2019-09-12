@@ -1,4 +1,4 @@
-package others;
+package others.公司笔试题;
 import java.util.Arrays;
 import java.util.Scanner;
 

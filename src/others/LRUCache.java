@@ -12,10 +12,12 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     private int maxEntries;
 
     public LRUCache(int maxEntries) {
+                                                    //true表示基于访问排序，false表示按照插入顺序排序
         super(16, 0.75f, true);
         this.maxEntries = maxEntries;
     }
 
+    //返回true时移除linkedHashMap中最老的值，就是链表中最前面的值。
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return size() > maxEntries;

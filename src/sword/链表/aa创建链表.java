@@ -27,6 +27,15 @@ public class aa创建链表 {
         head1.next.next.next.next.next.next = new ListNode(2);
         return head1;
     }
+    public static ListNode CreateList3(){
+        ListNode head1 = new ListNode(9);
+        head1.next = new ListNode(6);
+        head1.next.next = new ListNode(3);
+        head1.next.next.next = new ListNode(7);
+        head1.next.next.next.next = new ListNode(6);
+        head1.next.next.next.next.next = new ListNode(5);
+        return head1;
+    }
 
     public static void printList(ListNode head){
         while(head != null){

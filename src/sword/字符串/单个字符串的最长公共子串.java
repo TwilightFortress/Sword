@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- *单个字符串的最长公共子串
  * @author yuyang
  * @create 2019-09-02 20:27
  */

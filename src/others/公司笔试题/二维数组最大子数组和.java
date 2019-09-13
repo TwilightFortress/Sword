@@ -1,10 +1,11 @@
-package test;
+package others.公司笔试题;
 
 import java.util.Scanner;
 
 /**
  * @author yuyang
  * @create 2019-09-12 16:21
+ * 有问题
  */
 /*
 2

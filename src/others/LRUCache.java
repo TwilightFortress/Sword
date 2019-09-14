@@ -32,5 +32,4 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
         cache.put("d","滴滴滴");
         System.out.println(cache); // 输出为：{c=call, a=abstract, d=滴滴滴}
     }
-
 }

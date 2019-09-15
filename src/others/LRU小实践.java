@@ -23,6 +23,10 @@ class LRU<K, V> extends LinkedHashMap<K, V> {
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return size() > maxEntries;
     }
+
+    public V put(K key){
+       return super.put(key, null);
+    }
 }
 public class LRU小实践 {
     public static void main(String[] args) {
@@ -41,11 +45,11 @@ public class LRU小实践 {
                 lru.get(arr[i]);
             }else{
                 res[i] = -1;
-                lru.put(arr[i],"");
+                lru.put(arr[i]);
             }
         }
         for (int i = 0; i < res.length; i++) {
-            System.out.print(res[i] + "，");
+            System.out.print(res[i] + ",");
         }
     }
 }

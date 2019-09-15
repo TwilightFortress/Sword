@@ -28,6 +28,10 @@ public class 文本层序反序列化成树 {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         Node node = reconByLevelString(str);
+        if(node == null) {
+            System.out.print("null");
+            return;
+        }
         inOrderRecur(node);
     }
 

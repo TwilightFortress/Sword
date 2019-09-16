@@ -4,23 +4,18 @@ package others.ProductConsumer;
  * @author yuyang
  * @create 2019-07-05 9:47
  * wait()/notify()
- * 不是很好：生产者一直生产，队列满消费者才开始消费
  */
 
 import java.util.LinkedList;
 import java.util.Queue;
 public class TestProducterConsumer {
     private int queueSize = 10;
-    // private PriorityQueue<Integer>queue=new PriorityQueue<Integer>(queueSize);
     private Queue<Integer> queue = new LinkedList<>();
 
     public static void main(String[] args) throws InterruptedException {
+        //内部类实例化方式
         TestProducterConsumer test = new TestProducterConsumer();
         new Thread(test.new Producter()).start();
-        new Thread(test.new Producter()).start();
-        new Thread(test.new Producter()).start();
-        new Thread(test.new Consumer()).start();
-        new Thread(test.new Consumer()).start();
         new Thread(test.new Consumer()).start();
 
     }
@@ -30,11 +25,6 @@ public class TestProducterConsumer {
         @Override
         public void run() {
             while (true) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 synchronized (queue) {
                     if (queue.size() < queueSize) {
                         queue.add(queue.size() + 1);
@@ -64,11 +54,6 @@ public class TestProducterConsumer {
         @Override
         public void run() {
             while (true) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 synchronized (queue) {
                     if (queue.isEmpty()) {
                         System.out.println("没有产品可以消费，进入阻塞状态等待生产者生产。");

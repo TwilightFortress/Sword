@@ -27,7 +27,6 @@ public class TestProducterConsumer1 {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
-
                 synchronized (LOCK) {
                     while (count == FULL) {
                         try {
@@ -48,7 +47,6 @@ public class TestProducterConsumer1 {
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {
-
                 synchronized (LOCK) {
                     while (count == 0) {
                         try {

@@ -60,18 +60,13 @@ public class 二分查找 {
                 return middle;
             }
         }
-
         return -1;        //最后仍然没有找到，则返回-1
-
     }
     public static void main(String[] args) {
-
         int[] arr = {1, 3, 5, 7, 9, 11};
         int key = 4;
         //int position = recursionBinarySearch(arr,key,0,arr.length - 1);
-
         int position = commonBinarySearch(arr, key);
-
         if (position == -1) {
             System.out.println("查找的是" + key + ",序列中没有该数！");
         } else {

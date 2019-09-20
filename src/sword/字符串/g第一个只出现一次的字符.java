@@ -53,7 +53,7 @@ public class g第一个只出现一次的字符 {
     }
 
     public static void main(String[] args) {
-        String str = "abababdabacbabababaeb";
+        String str = "hellohikvision";
         System.out.println(fun(str));
     }
 }

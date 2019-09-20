@@ -37,4 +37,8 @@ public class e字符流中第一个不重复的字符 {
         }
         return ch;
     }
+
+    public static void main(String[] args) {
+
+    }
 }

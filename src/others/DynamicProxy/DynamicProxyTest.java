@@ -20,5 +20,4 @@ public class DynamicProxyTest {
                 target.getClass().getInterfaces(), handler);
         proxyObject.add("陈粒");
     }
-
 }

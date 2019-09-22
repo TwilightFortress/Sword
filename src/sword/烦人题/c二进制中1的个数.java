@@ -15,5 +15,7 @@ public class c二进制中1的个数 {
             n = n&(n - 1);
         }
         return count;
+       // Integer a = null;
+
     }
 }

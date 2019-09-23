@@ -103,7 +103,7 @@ public class 最长递增子序列 {
     public static void main(String[] args) {
        // int[] arr = {2, 1, 5, 3, 6, 4, 8, 9, 7};
         int arr[] = {1,2,1,3,4};
-        lis1(arr);
+        lis2(arr);
         printArray(arr);
       //  printArray(lis1(arr));
       //  printArray(lis2(arr));
